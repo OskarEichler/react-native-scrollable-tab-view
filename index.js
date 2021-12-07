@@ -127,7 +127,7 @@ const ScrollableTabView = createReactClass({
   },
 
   componentWillUnmount() {
-    if (Platform.OS === 'ios') {
+    if (true) {
       this.state.scrollXIOS.removeAllListeners();
     } else {
       this.state.positionAndroid.removeAllListeners();
@@ -136,7 +136,7 @@ const ScrollableTabView = createReactClass({
   },
 
   goToPage(pageNumber) {
-    if (Platform.OS === 'ios') {
+    if (true) {
       const offset = pageNumber * this.state.containerWidth;
       if (this.scrollView) {
         this.scrollView.scrollTo({x: offset, y: 0, animated: !this.props.scrollWithoutAnimation, });

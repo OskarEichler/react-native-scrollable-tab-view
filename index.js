@@ -20,7 +20,9 @@ const SceneComponent = require('./SceneComponent');
 const DefaultTabBar = require('./DefaultTabBar');
 const ScrollableTabBar = require('./ScrollableTabBar');
 
-const AnimatedViewPagerAndroid = Platform.OS === 'android' ?
+//NOTE IN THIS COMMIT I BASICALLY MAKE ANDROID WORK EXACTLY LIKE IOS CAUSE IM LAZY...
+
+const AnimatedViewPagerAndroid = false ?
   Animated.createAnimatedComponent(ViewPager) :
   undefined;
 
@@ -73,7 +75,7 @@ const ScrollableTabView = createReactClass({
     let positionAndroid;
     let offsetAndroid;
 
-    if (Platform.OS === 'ios') {
+    if (true) {
       scrollXIOS = new Animated.Value(this.props.initialPage * containerWidth);
       const containerWidthAnimatedValue = new Animated.Value(containerWidth);
       // Need to call __makeNative manually to avoid a native animated bug. See
@@ -224,7 +226,7 @@ const ScrollableTabView = createReactClass({
   },
 
   renderScrollableContent() {
-    if (Platform.OS === 'ios') {
+    if (true) {
       const scenes = this._composeScenes();
       return <Animated.ScrollView
         horizontal
@@ -322,7 +324,7 @@ const ScrollableTabView = createReactClass({
   },
 
   _onScroll(e) {
-    if (Platform.OS === 'ios') {
+    if (true) {
       const offsetX = e.nativeEvent.contentOffset.x;
       if (offsetX === 0 && !this.scrollOnMountCalled) {
         this.scrollOnMountCalled = true;
@@ -342,7 +344,7 @@ const ScrollableTabView = createReactClass({
       return;
     }
     
-    if (Platform.OS === 'ios') {
+    if (true) {
       const containerWidthAnimatedValue = new Animated.Value(width);
       // Need to call __makeNative manually to avoid a native animated bug. See
       // https://github.com/facebook/react-native/pull/14435
